@@ -159,7 +159,7 @@ def p_sample_loop(model, shape, n_steps, betas, one_minus_alphas_bar_sqrt):
     for i in reversed(range(n_steps)):
         cur_x = p_sample(model, cur_x, i, betas, one_minus_alphas_bar_sqrt)
         x_seq.append(cur_x)
-    return x_seqD
+    return x_seq
 
 
 def p_sample(model, x, t, betas, one_minus_alphas_bar_sqrt):
@@ -233,7 +233,7 @@ for t in range(num_epoch):
             axs[i - 1].scatter(cur_x[:, 0], cur_x[:, 1], color='red', edgecolor='white');
             axs[i - 1].set_axis_off();
             axs[i - 1].set_title('$q(\mathbf{x}_{' + str(i * 10) + '})$')
-plt.show()
+    plt.show()
 
 # 前向后向过程gif
 imgs = []
